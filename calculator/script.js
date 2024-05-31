@@ -1,6 +1,29 @@
 const display = document.querySelector("#display");
 const buttons = document.querySelectorAll("#buttons button");
 
+// keydown, keyup, keypress
+
+document.addEventListener("keydown", (event) => {
+  console.log(event);
+  if (event.code.includes("Digit")) {
+    addToDisplay(event.key);
+  }
+  if (
+    event.key === "+" ||
+    event.key === "-" ||
+    event.key === "*" ||
+    event.key === "/"
+  ) {
+    addToDisplay(event.key);
+  }
+  if (event.key === "=" || event.key === "Enter") {
+    calculate();
+  }
+  if (event.key === "Backspace") {
+    display.value = display.value.slice(0, -1);
+  }
+});
+
 buttons.forEach((button) => {
   button.addEventListener("click", () => chooseAction(button));
 });
