@@ -20,9 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
         removeTask(taskElement);
       });
 
-      taskElement.addEventListener("click", () => finishedTask(taskElement));
+      taskElement.addEventListener("click", () => {
+        finishedTask(taskElement);
+        sortTasks();
+      });
 
-      list.appendChild(clone);
+      list.prepend(clone);
 
       input.value = "";
     }
