@@ -15,4 +15,19 @@ function filter() {
   });
 }
 
+function find() {
+  const pinkColor = colors.find((color) => color === "red");
+  const found = document.getElementById("found");
+
+  found.innerHTML = "";
+
+  if (pinkColor) {
+    const pinkDiv = document.createElement("div");
+    pinkDiv.className = "circle red";
+    found.appendChild(pinkDiv);
+  }
+}
+
 document.querySelector(".filterbutton").addEventListener("click", filter);
+
+document.querySelector(".findbutton").addEventListener("click", find);
